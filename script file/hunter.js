@@ -24,7 +24,7 @@ const displayPhones = (phones, showAll) => {
     }
     // console.log(phones);
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
 
         // 1. create a div.
         const phoneCard = document.createElement('div');
@@ -37,7 +37,7 @@ const displayPhones = (phones, showAll) => {
         <h2 class="card-title">${phone.phone_name}</h2>
         <p>${phone.brand}</p>
         <div class="card-actions">
-            <button class="btn btn-primary">Buy Now</button>
+            <button onclick = "handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
         </div>
         </div>
         `;
@@ -64,6 +64,31 @@ const toggleLoadingSpinner = (isLoading) => {
     }else{
         loadingSpinner.classList.add('hidden');
     }
+}
+
+const handleShowDetail = async (id) =>{
+    // console.log('details ok', id)
+    const res = await fetch(` https://openapi.programming-hero.com/api/phone/${id}`);
+    const data = await res.json();
+    const phone = data.data;
+    // console.log(phone);
+    showPhoneDetails(phone)
+}
+
+
+const showPhoneDetails = (phone) => {
+    console.log(phone)
+    const showPhoneName = document.getElementById('show-detail-phone-name');
+    showPhoneName.innerText = phone.name;
+
+    const phoneDiscribtion = document.getElementById('phone-describtion');
+    phoneDiscribtion.innerHTML = `
+    
+        <img src = "${phone.image}"/>
+        <p><span>Storage : <span> ${phone?.mainFeatures?.storage}</p>
+    `;
+
+    show_modal_detail.showModal()
 }
 
 const handleShowAll = () => {

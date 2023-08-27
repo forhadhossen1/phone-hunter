@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Phone Hunter</title>
+</head>
+
+<body class="md:container md:mx-auto">
+    <header>
+        <h1 class="text-6xl text-orange-600 text-center">Hunting Phone</h1>
+    </header>
+
+    <main>
+        <section class="text-center py-10">
+            <input id="input-field" type="text" placeholder="Search your phone..." class="input input-bordered w-full max-w-xs bg-gray-100" />
+            <button onclick="handleSearch()" class="btn btn-active btn-primary px-8">Search</button>
+        </section>
+
+        <!-- ......search result......  -->
+
+        <section class="my-8">
+            <!-- .... loading spiner...  -->
+            <div id="loading-spinner" class="text-center hidden">
+                <span class="loading loading-spinner loading-lg"></span>
+            </div>
+
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div id="show-all" class="text-center py-12 hidden">
+                <button class="btn btn-active btn-primary px-12">Show All</button>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="script file/hunter.js"></script>
+</body>
+
+</html>
